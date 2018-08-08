@@ -8,19 +8,19 @@ gulp.task('default', () => {
 });
 
 gulp.task('sass', function() {
-    return gulp.src('source/scss/**/*.scss')
+    return gulp.src('src/scss/**/*.scss')
     .pipe(sass())
-    .pipe(gulp.dest('source/css'));
+    .pipe(gulp.dest('src/css'));
 });
 
 gulp.task('browserSync', function() {
     browserSync.init({
         server: {
-            baseDir: 'source'
+            baseDir: 'src'
         }
     })
 });
 
 gulp.task('watch', ['browserSync'], function() {
-    gulp.watch('source/scss/**/*.scss', ['sass']);
+    gulp.watch('src/scss/**/*.scss', ['sass']);
 });
