@@ -44,10 +44,29 @@ var mobileMenuControl = function() {
         }
     })
 }
+
+var gotoTop = function() {
+    $('.js-gotop').on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $('body').offset().top
+        }, 500, 'easeInOutExpo');
+    });
+    $(window).scroll(function() {
+        var $win = $(window);
+        if ($win.scrollTop() > 200) {
+            $('.gototop').addClass('active');            
+        } else {
+            $('.gototop').removeClass('active');
+        }
+    })
+}
+
 /**
  * Document ready
  */
 $(document).ready(function() {
     loaderPage();
     mobileMenuControl();
+    gotoTop();
 });

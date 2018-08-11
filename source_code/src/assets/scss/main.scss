@@ -45,6 +45,19 @@ a {
     }
 }
 
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: $screen-lg-min){
+        width: 970px;
+    }
+    @media screen and (min-width: $screen-md-min){
+        width: 750px;
+    }
+}
 .page-loader {
     position: fixed;
     left: 0px;
@@ -228,6 +241,10 @@ a {
         transform: translateX(380px);
     }
     .extra-text {
+        display: none;
+        @media screen and (max-width: 750px) {
+            display: block;   
+        }
         .page-mobile-menu-active & {
             display: block;
             float: left;
@@ -324,4 +341,168 @@ a {
             display: block;
         }
     }
+}
+
+.page-main {
+    position: relative;
+    margin-bottom: 300px;
+    background: yellow;
+    z-index: 2;
+    @media screen and (max-width: 750) {
+        margin-bottom: 0;
+    }
+}
+.page-footer {
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    height: 100px;
+    background: #F1F6F8;
+    width: 100%;
+    left: 0;
+    padding-top: 100px;
+    text-align: center;
+    @media screen and (max-width: $screen-sm-max) {
+        position: relative;
+        height: inherit;
+        padding: 7em 0;
+    }
+}
+
+.gototop {
+    position: fixed;
+    bottom: -20px;
+    right: 20px;
+    z-index: 99999999;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s all;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        bottom: 20px;        
+    }
+    a {
+        width: 50px;
+        height: 50px;
+        display: table;
+        background: rgba(0, 0, 0, .5);
+        color: $brand-white;
+        text-align: center;
+        border-radius: 4px;
+        i {
+            height: 50px;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        &:hover, &:active, &:focus {
+            text-decoration: none;
+            outline: none;
+            background: rgba(0, 0, 0, .9);
+        }
+    }
+}
+
+.flex {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.page-section-half {
+    @extend .flex;
+    &:last-child {
+        .page-text {
+            border-bottom: none;
+        }
+    }
+    .page-image, .page-text {
+        height: 100vh;
+        width: 50%;
+        transition: .3s all ease;
+        @media screen and (max-width: 750px) {
+            height: inherit;
+            padding: 2em 0;
+            width: 100%;
+        }
+    }
+    .page-image {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        @media screen and (max-width: 750px){
+            height: 400px;
+            padding: 0;
+        }
+    }
+    .page-text {
+        border-bottom: 1px solid lighten($color: $brand-black, $amount: 95%);
+        @extend .flex;
+        justify-content: center;
+        > .page-text-inner {
+            align-self: center;
+            max-width: 500px;
+            padding: 30px;
+        }
+    }
+    &:hover, &:focus {
+        .page-image {
+            width: 48%;
+            @media screen and (max-width: 750px) {
+                width: 100%;
+            }
+        }
+        .page-text {
+            width: 52%;
+            @media screen and (max-width: 750px) {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.btn {
+    border: none;
+    border-radius: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-transform: uppercase;    
+    letter-spacing: .1em;
+    transition: .3s all ease-in;
+    &:hover, &:focus, &:active {
+        box-shadow: none;
+        text-decoration: none;
+    }
+    &.btn-sm {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 13px;
+    }
+    &.btn-lg {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        line-height: 1.5;
+    }
+    &.btn-primary {
+        border: 2px solid $brand-primary;
+        background: $brand-primary;
+        color: $brand-white;
+        &:hover, &:active, &:focus {
+            background: lighten($color: $brand-primary, $amount: 5%);
+            color: $brand-white;
+            border: 2px solid lighten($color: $brand-primary, $amount: 5%);
+        }
+        &:focus, &:active {
+            outline: none;
+            border: 2px solid lighten($color: $brand-primary, $amount: 5%);
+        }
+    }
+}
+
+// animate
+.page-animated {
+    animation-duration: .5s;
 }
