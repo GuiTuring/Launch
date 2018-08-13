@@ -1,12 +1,74 @@
 {
+  "paths": {
+    "src": {
+      "base": "./src/",
+      "css": "./src/assets/css/",
+      "fonts": "./src/assets/fonts/",
+      "js": "./src/assets/js/",
+      "img": "./src/assets/images/",
+      "scss": "./src/assets/scss/"
+    },
+    "dist": {
+      "base": "./public/",
+      "css": "./public/css/",
+      "js": "./public/js/",
+      "fonts": "./public/fonts/",
+      "img": "./public/images/"
+    },
+    "build": {
+      "base": "./build/",
+      "css": "./build/css/",
+      "fonts": "./build/fonts/",
+      "js": "./build/js/",
+      "html": "./build/html/",
+      "img": "./build/img/"
+    }
+  },
+  "urls": {},
+  "vars": {
+    "siteCssName": "site.combined.min.css"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build"
+  },
+  "globs": {
+    "distCss": [
+      "./build/css/**/*.css",
+      "./src/assets/css/**/*.css"
+    ],
+    "distJs": [
+      "./build/js/**/*.js"
+    ],
+    "babelJs": [
+      "./src/assets/js/**/*.js"
+    ]
+  },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.24.6",
+    "fancy-log": "^1.3.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-cached": "^1.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.3",
     "gulp-filter": "^5.1.0",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-newer": "^1.4.0",
     "gulp-plumber": "^1.2.0",
+    "gulp-print": "^5.0.0",
+    "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
-    "gulp-useref": "^3.1.5",
-    "gulp-util": "^3.0.8"
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1",
+    "gulp-useref": "^3.1.5"
+  },
+  "dependencies": {
+    "gulp-load-plugins": "^1.5.0"
   }
 }
