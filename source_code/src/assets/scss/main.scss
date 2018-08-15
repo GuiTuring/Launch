@@ -183,20 +183,19 @@ a {
     padding: 0;
     width: 100%;
     height: 1050px;
-    padding-top: 192px;
     display: block;
-
+}
+.sec1-text {
+    padding-top: 192px;
+    width: 480px;
     p {
-        display: inline-block;
-        margin: 0;
-        padding: 0;
+        display: block;        
         box-sizing: border-box;
         border-width: 0;
         font-family: Ringside;
         font-weight: 200;
         line-height: 36px;
         font-size: 28px;
-        width: 480px;
     }
 }
 .section2 {
